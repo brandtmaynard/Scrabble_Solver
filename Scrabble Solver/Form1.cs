@@ -33,9 +33,10 @@ namespace Scrabble_Solver
             return word.Select(c => Constants.Points[c]).Sum();
         }
 
-        // call on backgroundWorker to update list when text is update
+        // call on backgroundWorker to update list when text is updates
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
+            // cancel previous backgroundWorker if it's still running
             backgroundWorker.CancelAsync();
             while (backgroundWorker.IsBusy)
             {
